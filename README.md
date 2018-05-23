@@ -8,8 +8,9 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.gsanthosh91:CamGal:0.1.1'
-}l̥
+        implementation 'com.github.gsanthosh91:CamGal:0.1.1'
+}
+
 ```
 
 ## Usage
@@ -17,16 +18,16 @@ dependencies {
 ```        
 CamGal camGal = new CamGal(this);
         
-        Button button = (Button) findViewById(R.id.select);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                camGal.selectImage();
-            }
-        });
+Button button = (Button) findViewById(R.id.select);
+button.setOnClickListener(new View.OnClickListener() {
+    public void onClick(View v) {
+        camGal.selectImage();
+    }
+});
 
 ```
 
-##Getting the photo file
+## Getting the photo file
 
 ```
 @Override
