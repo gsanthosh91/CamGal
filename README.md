@@ -1,22 +1,21 @@
 # CamGal allows you to easily capture image from the gallery, camera without creating lots of boilerplate.
 
-<h1>Gradle depl̥endency</h1>
+## Gradle depl̥endency
 
-<code>
+```
 repositories {
         maven { url 'https://jitpack.io' }
-    }
+}
 
 dependencies {
     implementation 'com.github.gsanthosh91:CamGal:0.1.1'
-}
+}l̥
+```
 
-</code>
+## Usage
 
-<h2>Usage</h2>
-
-<code>
-        CamGal camGal = new CamGal(this);
+```        
+CamGal camGal = new CamGal(this);
         
         Button button = (Button) findViewById(R.id.select);
         button.setOnClickListener(new View.OnClickListener() {
@@ -25,13 +24,11 @@ dependencies {
             }
         });
 
-</code>
+```
 
+##Getting the photo file
 
-<h2>Getting the photo file</h2>
-
-<code>
-
+```
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
@@ -49,5 +46,4 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
      });
 }
 
-</code>
-
+```
