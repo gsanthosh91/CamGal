@@ -12,6 +12,9 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -30,13 +33,40 @@ public class CamGal {
     private static final int REQUEST_CAMERA = 2;
     private Activity activity;
     private final CharSequence[] items = {"Take Photo", "Choose from library", "Cancel"};
+    AlertDialog alertDialog;
 
     public CamGal(Activity activity) {
         this.activity = activity;
     }
 
     public void selectImage() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(activity);
+
+        LayoutInflater inflater = activity.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.alert_layout, null);
+        dialogBuilder.setView(dialogView);
+
+        ImageView camera = (ImageView) dialogView.findViewById(R.id.camera);
+        camera.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                cameraIntent(activity);
+                alertDialog.dismiss();
+                alertDialog.dismiss();
+            }
+        });
+
+        ImageView gallery = (ImageView) dialogView.findViewById(R.id.gallery);
+        gallery.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                alertDialog.dismiss();
+                galleryIntent(activity);
+            }
+        });
+        alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
+        /*AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
@@ -49,7 +79,7 @@ public class CamGal {
                 }
             }
         });
-        builder.show();
+        builder.show();*/
     }
 
     private void galleryIntent(Activity activity) {
