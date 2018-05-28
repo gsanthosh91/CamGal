@@ -8,7 +8,7 @@ repositories {
 }
 
 dependencies {
-        implementation 'com.github.gsanthosh91:CamGal:0.1.1'
+        implementation 'com.github.gsanthosh91:CamGal:0.1.3'
 }
 
 ```
